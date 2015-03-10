@@ -1,0 +1,77 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1074" measuredH="726" mockupW="1022" mockupH="700">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="52" y="26" w="1022" h="700" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>A%20Web%20Page%0Ahttp%3A//</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="53" y="101" w="1021" h="138" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Image" x="52" y="233" w="1022" h="472" measuredW="77" measuredH="79" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::iPhone" x="131" y="271" w="220" h="332" measuredW="282" measuredH="573" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>allWhite</bgPattern>
+        <model>IPhone5</model>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::iPhone" x="284" y="398" w="332" h="220" measuredW="573" measuredH="282" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <model>IPhone5</model>
+        <orientation>landscape</orientation>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::MultilineButton" x="711" y="278" w="310" h="368" measuredW="139" measuredH="66" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Multiline%20Button%0ASecond%20line%20of%20text</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::RadioButton" x="853" y="646" w="-1" h="-1" measuredW="16" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::RadioButton" x="869" y="646" w="-1" h="-1" measuredW="16" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::RadioButton" x="885" y="646" w="-1" h="-1" measuredW="16" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::RadioButton" x="901" y="646" w="-1" h="-1" measuredW="16" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="817" y="150" w="98" h="27" measuredW="61" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Button</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Button" x="937" y="150" w="99" h="27" measuredW="61" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Button</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Link" x="951" y="193" w="-1" h="-1" measuredW="85" measuredH="19" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>a%20linkhiiohphpp</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Label" x="821" y="111" w="-1" h="-1" measuredW="61" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Some%20text</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Icon" x="478" y="111" w="-1" h="-1" measuredW="128" measuredH="128" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>AddCommentIcon%7Cxxlarge</icon>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
