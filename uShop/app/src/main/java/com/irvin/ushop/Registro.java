@@ -1,44 +1,34 @@
 package com.irvin.ushop;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import com.parse.Parse;
 import com.parse.ParseObject;
 
 
-public class MainActivity extends ActionBarActivity {
+public class Registro extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "Y4Z18hEnQtZYFxpMju1cvethHHtKZfu9aS4QyIag", "oB4lTch3tn57FeXB6dYdCgBIZfkKveTaYkkZeLDV");
-
+        setContentView(R.layout.activity_registro);
     }
 
-    public void ingresarUsuario(View view){
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
+    public void enviarRegistro(View view){
+        ParseObject testObject = new ParseObject("User");
+        testObject.put("username", "Irvin");
+        testObject.put("password","123456");
         testObject.saveInBackground();
     }
-
-    //metodo para
-    public void mostrarVistaRegistro(View view) {
-        Intent i = new Intent(this, Registro.class );
-        startActivity(i);
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_registro, menu);
         return true;
     }
 
