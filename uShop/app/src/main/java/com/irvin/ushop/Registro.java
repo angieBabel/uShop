@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+import com.parse.ParseException;
 
 
 public class Registro extends ActionBarActivity {
@@ -19,10 +21,28 @@ public class Registro extends ActionBarActivity {
     }
 
     public void enviarRegistro(View view){
-        ParseObject testObject = new ParseObject("User");
-        testObject.put("username", "Irvin");
-        testObject.put("password","123456");
-        testObject.saveInBackground();
+
+        ParseUser user = new ParseUser();
+        user.setUsername("Irvin");
+        user.setPassword("1234");
+        user.setEmail("email@example.com");
+        user.put("phone", "650-253-0000");
+
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    // Hooray! Let them use the app now.
+                    TextView mostrar = (TextView)findViewById(R.id.mensajereg);
+                    mostrar.setText("Hooray! Let them use the app now.");
+
+                } else {
+                    // Sign up didn't succeed. Look at the ParseException
+                    // to figure out what went wrong
+                    TextView mostrar = (TextView)findViewById(R.id.mensajereg);
+                    mostrar.setText("Sign up didn't succeed. Look at the ParseException");
+                }
+            }
+        });
     }
 
     @Override

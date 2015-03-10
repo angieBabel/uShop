@@ -6,8 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.ParseException;
+import com.parse.LogInCallback;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,9 +29,28 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void ingresarUsuario(View view){
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+
+        //Metodo para obtener el nombre de usuario ingresado
+        EditText usr = (EditText )findViewById(R.id.usernamelog);
+        String usuario = usr.getText().toString();
+        //Obtencion de la contraseña ingresada
+        EditText pasw = (EditText)findViewById(R.id.paswlog);
+        String contrasena = pasw.getText().toString();
+
+        //Pase de parametros enviados a parse para ingresar
+        ParseUser.logInInBackground(usuario, contrasena, new LogInCallback() {
+            public void done(ParseUser user, ParseException e) {
+                if (user != null) {
+                    // Hooray! The user is logged in.
+                    TextView mensaje =(TextView)findViewById(R.id.mensajelog);
+                    mensaje.setText("Hooray! The user is logged in.");
+                } else {
+                    // Signup failed. Look at the ParseException to see what happened.
+                    TextView mensaje =(TextView)findViewById(R.id.mensajelog);
+                    mensaje.setText("Signup failed. Look at the ParseException to see what happened.");
+                }
+            }
+        });
     }
 
     //metodo para
