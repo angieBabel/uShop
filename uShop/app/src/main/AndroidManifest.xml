@@ -23,6 +23,10 @@
             android:name=".Registro"
             android:label="@string/title_activity_registro" >
         </activity>
+        <activity
+            android:name=".Usuario"
+            android:label="@string/title_activity_usuario" >
+        </activity>
     </application>
 
 </manifest>

@@ -59,6 +59,11 @@ public class MainActivity extends ActionBarActivity {
         startActivity(i);
     }
 
+    public void mostrarVistaUsuario(View view){
+        Intent i = new Intent(this, Usuario.class);
+        startActivity(i);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

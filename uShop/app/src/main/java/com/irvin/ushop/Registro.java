@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.ParseUser;
@@ -22,11 +23,24 @@ public class Registro extends ActionBarActivity {
 
     public void enviarRegistro(View view){
 
+        EditText username1 = (EditText)findViewById(R.id.usernamereg);
+        String username = username1.getText().toString();
+
+        EditText pasw1 = (EditText)findViewById(R.id.paswreg);
+        String  password = pasw1.getText().toString();
+
+        EditText email1 = (EditText)findViewById(R.id.emailreg);
+        String email = email1.getText().toString();
+
+        EditText phone1 = (EditText)findViewById(R.id.telefonoreg);
+        String phone = phone1.getText().toString();
+
         ParseUser user = new ParseUser();
-        user.setUsername("Irvin");
-        user.setPassword("1234");
-        user.setEmail("email@example.com");
-        user.put("phone", "650-253-0000");
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+        //"650-253-0000"
+        user.put("phone",phone);
 
         user.signUpInBackground(new SignUpCallback() {
             public void done(ParseException e) {
