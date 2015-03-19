@@ -5,4 +5,15 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_registro">Registro</string>
     <string name="title_activity_usuario">Usuario</string>
+    <string name="main_acceso_textview_ushop">Acceso uShop</string>
+    <string name="main_acceso_textview_usuario">Usuario</string>
+    <string name="main_acceso_textview_contrasena">Contraseña</string>
+    <string name="main_acceso_button_Ingresar">Ingresar</string>
+    <string name="main_acceso_button_crearCuenta">Crear cuenta</string>
+    <string name="registro_textview_registrouShop">Registro uShop</string>
+    <string name="registro_hint_Nombre">Nombre</string>
+    <string name="registro_hint_contrasena">Contraseña</string>
+    <string name="registro_hint_correo">Correo</string>
+    <string name="registro_hint_telefono">Telefono: 650-253-0000</string>
+    <string name="registro_button_registrar">Registrar</string>
 </resources>

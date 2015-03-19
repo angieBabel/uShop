@@ -42,12 +42,12 @@ public class MainActivity extends ActionBarActivity {
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
                     // Hooray! The user is logged in.
-                    TextView mensaje =(TextView)findViewById(R.id.mensajelog);
-                    mensaje.setText("Hooray! The user is logged in.");
+                    Intent i = new Intent(getApplicationContext(), Usuario.class);
+                    startActivity(i);
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.
                     TextView mensaje =(TextView)findViewById(R.id.mensajelog);
-                    mensaje.setText("Signup failed. Look at the ParseException to see what happened.");
+                    mensaje.setText("Fallo inicio de sesion. Usuario o contraseña incorrectos.");
                 }
             }
         });
@@ -58,12 +58,6 @@ public class MainActivity extends ActionBarActivity {
         Intent i = new Intent(this, Registro.class );
         startActivity(i);
     }
-
-    public void mostrarVistaUsuario(View view){
-        Intent i = new Intent(this, Usuario.class);
-        startActivity(i);
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
