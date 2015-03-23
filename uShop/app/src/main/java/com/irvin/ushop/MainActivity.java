@@ -1,19 +1,9 @@
 package com.irvin.ushop;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.ParseUser;
-import com.parse.ParseException;
-import com.parse.LogInCallback;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -22,42 +12,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "Y4Z18hEnQtZYFxpMju1cvethHHtKZfu9aS4QyIag", "oB4lTch3tn57FeXB6dYdCgBIZfkKveTaYkkZeLDV");
-
     }
 
-    public void ingresarUsuario(View view){
-
-        //Metodo para obtener el nombre de usuario ingresado
-        EditText usr = (EditText )findViewById(R.id.usernamelog);
-        String usuario = usr.getText().toString();
-        //Obtencion de la contraseña ingresada
-        EditText pasw = (EditText)findViewById(R.id.paswlog);
-        String contrasena = pasw.getText().toString();
-
-        //Pase de parametros enviados a parse para ingresar
-        ParseUser.logInInBackground(usuario, contrasena, new LogInCallback() {
-            public void done(ParseUser user, ParseException e) {
-                if (user != null) {
-                    // Hooray! The user is logged in.
-                    Intent i = new Intent(getApplicationContext(), Usuario.class);
-                    startActivity(i);
-                } else {
-                    // Signup failed. Look at the ParseException to see what happened.
-                    TextView mensaje =(TextView)findViewById(R.id.mensajelog);
-                    mensaje.setText("Fallo inicio de sesion. Usuario o contraseña incorrectos.");
-                }
-            }
-        });
-    }
-
-    //metodo para
-    public void mostrarVistaRegistro(View view) {
-        Intent i = new Intent(this, Registro.class );
-        startActivity(i);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
