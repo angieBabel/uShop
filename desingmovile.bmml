@@ -72,7 +72,7 @@
         <model>IPhone5</model>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::Webcam" x="516" y="184" w="90" h="77" measuredW="177" measuredH="146" zOrder="13" locked="false" isInGroup="-1"/>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Webcam" x="525" y="141" w="90" h="77" measuredW="177" measuredH="146" zOrder="13" locked="false" isInGroup="-1"/>
     <control controlID="18" controlTypeID="com.balsamiq.mockups::HelpButton" x="1081" y="478" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="14" locked="false" isInGroup="-1"/>
     <control controlID="19" controlTypeID="com.balsamiq.mockups::Switch" x="1050" y="140" w="-1" h="-1" measuredW="49" measuredH="28" zOrder="15" locked="false" isInGroup="-1"/>
     <control controlID="21" controlTypeID="com.balsamiq.mockups::HRule" x="885" y="174" w="217" h="-1" measuredW="100" measuredH="10" zOrder="16" locked="false" isInGroup="-1"/>
