@@ -33,45 +33,53 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:layout_marginTop="30dp"/>
 
-        <EditText
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="@string/nombre_main"
-            android:ems="10"
-            android:id="@+id/nombre_et"
-            android:layout_below="@+id/ushoptv"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/nombre_main"
+                android:ems="10"
+                android:id="@+id/nombre_et"
+                android:layout_below="@+id/ushoptv"
+                android:layout_gravity="center_horizontal" />
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-        <EditText
+        <com.wrapp.floatlabelededittext.FloatLabeledEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="@string/contrasena_main"
-            android:ems="10"
-            android:id="@+id/passw_et"
-            android:layout_below="@+id/nombre_et"
-            android:layout_alignLeft="@+id/nombre_et"
-            android:layout_alignStart="@+id/nombre_et"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/contrasena_main"
+                android:ems="10"
+                android:id="@+id/passw_et"
+                android:layout_below="@+id/nombre_et"
+                android:layout_gravity="center_horizontal"/>
+        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rememberUser_main"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/ingresar_main"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:onClick="ingresarUsuario"/>
 
         <Button
@@ -81,12 +89,6 @@
             android:text="@string/registrarbttn"
             android:layout_marginTop="20dp"
             android:onClick="mostrarVistaRegistro"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 
