@@ -1,6 +1,7 @@
 package com.irvin.ushop;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+
+import com.parse.Parse;
+import com.parse.ParseUser;
 
 
 public class MenuShop extends ActionBarActivity
@@ -46,6 +50,8 @@ public class MenuShop extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
+    //public ParseUser currentUser;
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
@@ -63,6 +69,14 @@ public class MenuShop extends ActionBarActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
+                break;
+            case 2:
+                ParseUser.logOut();
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                currentUser = null;
+
+                this.finish();
+
                 break;
             default:
                 fragmentManager.beginTransaction()

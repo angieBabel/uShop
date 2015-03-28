@@ -30,4 +30,8 @@
     <string name="registro_hint_correo">e-mail</string>
     <string name="registro_hint_telefono">Telefono</string>
     <string name="registro_button_registrar">Registrar</string>
+
+    <!-- Strings para el fragment preferencia -->
+    <string name="fragment_preferencia_title">Añadir Preferencia</string>
+    <string name="fragment_preferencia_"></string>
 </resources>

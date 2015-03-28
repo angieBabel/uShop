@@ -6,28 +6,60 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
+import com.parse.ParseACL;
 import com.parse.ParseUser;
 import com.parse.ParseException;
-
 
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "Y4Z18hEnQtZYFxpMju1cvethHHtKZfu9aS4QyIag", "oB4lTch3tn57FeXB6dYdCgBIZfkKveTaYkkZeLDV");
 
+        if(ParseUser.getCurrentUser()== null){
+            setContentView(R.layout.activity_main);
+        }else{
+            Intent i = new Intent(getApplicationContext(),MenuShop.class);
+            startActivity(i);
+        }
+
+        /*final CheckBox check = (CheckBox) findViewById(R.id.sesion_chk);
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isChecked = ((CheckBox)view).isChecked();
+                if (isChecked) {
+                    check.setText("Checkbox marcado!");
+                }
+                else {
+                    check.setText("Checkbox desmarcado!");
+                }
+            }
+        });
+
+        CheckBox check = (CheckBox) findViewById(R.id.sesion_chk);
+        if (check.isChecked()) {
+            check.setChecked(false);
+        }else {
+            protected void onDestroy(){
+                super.onDestroy();
+
+            }
+        }*/
+
     }
 
+    //Metodo onClick para el boton ingresar
     public void ingresarUsuario(View view){
 
         //Metodo para obtener el nombre de usuario ingresado
