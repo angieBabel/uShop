@@ -6,20 +6,18 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
 
-import com.parse.Parse;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
+
+import static android.app.PendingIntent.getActivity;
 
 
 public class MenuShop extends ActionBarActivity
@@ -50,8 +48,6 @@ public class MenuShop extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
-    //public ParseUser currentUser;
-
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
@@ -71,17 +67,22 @@ public class MenuShop extends ActionBarActivity
                         .commit();
                 break;
             case 2:
-                ParseUser.logOut();
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                currentUser = null;
-
-                this.finish();
-
-                break;
-            default:
+                fragment = new Tareas();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position+1))
+                        .replace(R.id.container, fragment)
                         .commit();
+                break;
+            case 3:
+                fragment = new Otro();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .commit();
+                break;
+            case 4:
+                ParseUser.logOut();
+                Intent i = new Intent(getApplicationContext(), Main.class);
+                startActivity(i);
+                this.finish();
                 break;
         }
 
@@ -97,6 +98,12 @@ public class MenuShop extends ActionBarActivity
                 break;
             case 2:
                 mTitle = getString(R.string.title_section3);
+                break;
+            case 3:
+                mTitle = getString(R.string.title_section4);
+                break;
+            case 4:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }
@@ -176,5 +183,4 @@ public class MenuShop extends ActionBarActivity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
-
 }

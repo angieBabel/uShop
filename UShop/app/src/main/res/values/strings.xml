@@ -2,12 +2,14 @@
     <string name="app_name">UShop</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Opciones</string>
     <string name="title_activity_menu_shop">MenuShop</string>
 
-    <string name="title_section1">My Perfil</string>
-    <string name="title_section2">Añadir preferencia</string>
-    <string name="title_section3">Cerrar Sesión</string>
+    <string name="title_section1">Inicio</string>
+    <string name="title_section2">Preferencias</string>
+    <string name="title_section3">Tareas</string>
+    <string name="title_section4">Otro</string>
+    <string name="title_section5">Cerrar Sesión</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -33,5 +35,9 @@
 
     <!-- Strings para el fragment preferencia -->
     <string name="fragment_preferencia_title">Añadir Preferencia</string>
-    <string name="fragment_preferencia_"></string>
+    <string name="fragment_preferencia"></string>
+
+    <!-- Strings para el fragment tareas -->
+    <string name="title_fragment_tareas">Tareas</string>
+
 </resources>

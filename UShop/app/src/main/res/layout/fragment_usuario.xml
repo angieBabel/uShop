@@ -34,8 +34,9 @@
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="276dp"
-                android:id="@+id/listView" />
+                android:id="@+id/listUsuario_preferencias" />
         </LinearLayout>
 
     </ScrollView>
+
 </LinearLayout>
