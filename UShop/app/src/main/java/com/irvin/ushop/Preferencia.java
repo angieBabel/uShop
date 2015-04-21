@@ -31,6 +31,7 @@ public class Preferencia extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_preferencia, container, false);
 
         lista_preferencias = (ListView) rootView.findViewById(R.id.list_preferencias);
+
         modelItems = new Model[16];
         modelItems[0]= new Model ("Audio",0);
         modelItems[1]= new Model ("Autos",0);

@@ -4,10 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.ContextMenu;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,22 +14,39 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
+import com.parse.FindCallback;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-import java.util.ArrayDeque;
-import java.util.zip.Inflater;
+import java.util.ArrayList;
 
 /**
  * Created by Irvin on 14/04/2015.
  */
 public class Tareas extends Fragment {
 
+    ListView lista_tareas;
+    Model[] Items;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tareas, container, false);
+
+        lista_tareas = (ListView) rootView.findViewById(R.id.listTask);
+
+        Items = new Model[100];
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
+        query.whereEqualTo("user", user);
+        query.findInBackground(new FindCallback<ParseObject>() {
+
+        });
+
+        CustomAdapter adapter = new CustomAdapter(this.getActivity(), Items);
+        lista_tareas.setAdapter(adapter);
+
         return rootView;
     }
 
@@ -68,12 +82,10 @@ public class Tareas extends Fragment {
                         Log.d("Tareas", inputField.getText().toString());
 
                         ParseUser currentUser = ParseUser.getCurrentUser();
-
-                        ParseObject tsk = new ParseObject("Task");
-                        tsk.put("taskname",inputField.getText().toString());
-                        tsk.put("User",currentUser.toString());
-                        tsk.saveInBackground();
-
+                        ParseObject tareas = new ParseObject("Task");
+                        tareas.put("taskname", inputField.getText().toString());
+                        tareas.put("user", currentUser);
+                        tareas.saveInBackground();
 
                     }
                 });

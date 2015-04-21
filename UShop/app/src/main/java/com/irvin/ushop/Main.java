@@ -26,5 +26,7 @@ public class Main extends Activity{
             Intent i = new Intent(this, MenuShop.class);
             startActivity(i);
         }
+
+        this.finish();
     }
 }
