@@ -61,6 +61,8 @@ public class Registro extends ActionBarActivity {
                 }
             }
         });
+
+        this.finish();
     }
 
     @Override

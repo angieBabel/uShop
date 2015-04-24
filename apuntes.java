@@ -1,3 +1,31 @@
+final ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
+        ParseUser user = ParseUser.getCurrentUser();
+        query.whereEqualTo("user", user);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObjects, com.parse.ParseException e) {
+                if (e == null) {
+                    // The query was successful.
+                    //int numItems = parseObjects.size();
+                    //modelItems = new Model[numItems];
+                    Log.d("Tareas", "Resividas " + parseObjects.size() + " tareas");
+                    for (ParseObject parseObject : parseObjects){
+                        String tarea;
+                        tarea = parseObject.get("taskname").toString();
+                        Log.d("Tarea", tarea);
+                    }
+                    /*for (ParseObject dealsObject : parseObjects) {
+                        // use dealsObject.get('columnName') to access the properties of the Deals object.
+                        dealsObject.get('taskname');
+                    }*/
+                } else {
+                    // Something went wrong.
+                    Log.d("Usuario", "Error: " + e.getMessage());
+                }
+            }
+        });
+
+//Toda la clase Tareas antes de modificar
 package com.irvin.ushop;
 
 import android.app.AlertDialog;
@@ -14,7 +42,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -31,18 +58,20 @@ import java.util.List;
  */
 public class Tareas extends Fragment {
 
-    //ModeloTarea[] tsk;
+    //ListView lista_tareas;
+
     private ListView lista_tareas;
+    private EditText et;
+    private String listview_array[];
+    private String[] element;
     private ArrayList<String> array_task = new ArrayList<>();
-    int x=1;
+    int lenght=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tareas, container, false);
 
-        lista_tareas = (ListView) rootView.findViewById(R.id.listTask);
-        final ArrayAdapter adaptador = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_expandable_list_item_1, array_task);
-        lista_tareas.setAdapter(adaptador);
+        //lista_tareas = (ListView) rootView.findViewById(R.id.listTask);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
         ParseUser user = ParseUser.getCurrentUser();
@@ -51,13 +80,7 @@ public class Tareas extends Fragment {
             @Override
             public void done(List<ParseObject> objects, com.parse.ParseException e) {
                 if (e == null) {
-                    Log.d("Tareas",objects.size()+" ");
                     for (ParseObject parseObject : objects){
-                        String tarea;
-                        tarea = parseObject.get("taskname").toString();
-                        Log.d("Tarea", tarea);
-                        array_task.add(tarea);
-                        adaptador.notifyDataSetChanged();
                     }
                 } else {
                     // Something went wrong.
@@ -65,6 +88,13 @@ public class Tareas extends Fragment {
                 }
             }
         });
+       //lista_tareas = (ListView) rootView.findViewById(R.id.listTask);
+       //lista_tareas.setAdapter(new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_expandable_list_item_1, listview_array));
+
+
+        //AdptadorPreferencia adapter = new AdptadorPreferencia(this.getActivity(), modelItems);
+        //lista_tareas.setAdapter(adapter);
+
         return rootView;
     }
 
@@ -118,3 +148,25 @@ public class Tareas extends Fragment {
 
     }
 }
+
+
+
+//otro
+@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_tareas, container, false);
+
+        ArrayList<ModeloTarea> tareas = new ArrayList<ModeloTarea>();
+        tareas.add(new ModeloTarea("Tarea 1"));
+
+        ListView listView = (ListView)rootView.findViewById(R.id.listTask);
+        listView.setAdapter(new AdaptadorTareas(this, R.layout.vista_tareas, tareas){
+            @Override
+            public void onEntrada(Object entrada, View view) {
+                TextView texto_superior_entrada = (TextView) view.findViewById(R.id.taskTextView);
+                texto_superior_entrada.setText(((ModeloTarea) entrada).get_textoEncima());
+            }
+        });
+
+        return rootView;
+    }

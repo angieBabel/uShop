@@ -11,21 +11,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Irvin on 15/04/2015.
+ * Created by Irvin on 23/04/2015.
  */
-public class CustomAdapter extends ArrayAdapter{
-    Model[] modelItems = null;
+public class AdaptadorPreferencia extends ArrayAdapter {
+    ModeloPreferencia[] modPref = null;
     Context context;
 
-    public CustomAdapter(Context context, Model[] resource) {
+    public AdaptadorPreferencia(Context context, ModeloPreferencia[] resource){
         super(context,R.layout.vista_preferencias,resource);
-        // Auto-generated constructor stub
         this.context = context;
-        this.modelItems = resource;
+        this.modPref = resource;
     }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        //Auto-generated method stub
+
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         convertView = inflater.inflate(R.layout.vista_preferencias, parent, false);
 
@@ -33,7 +33,7 @@ public class CustomAdapter extends ArrayAdapter{
         //CheckBox cb = (CheckBox) convertView.findViewById(R.id.check_preferencia);
         CheckBox check = (CheckBox) convertView.findViewById(R.id.check_preferencia);
 
-        name.setText(modelItems[position].getName());
+        name.setText(modPref[position].getName());
 
         /*if(modelItems[position].getValue() == 1) {
             cb.setChecked(true);
@@ -41,16 +41,15 @@ public class CustomAdapter extends ArrayAdapter{
         }else
             cb.setChecked(false);
 */
-
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean isChecked = ((CheckBox)view).isChecked();
                 if (isChecked) {
-                    Toast.makeText(getContext(), "Checkbox " + modelItems[position].getName().toString() + " marcado!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Checkbox " + modPref[position].getName().toString() + " marcado!", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(getContext(), "Checkbox " + modelItems[position].getName().toString() + " desmarcado!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Checkbox " + modPref[position].getName().toString() + " desmarcado!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
