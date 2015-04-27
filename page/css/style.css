@@ -75,3 +75,14 @@ body{
 	height: 100%;
 	width: 100%;
 }
+.formulario{
+	margin-left: 120px;
+	width: 80%;
+	background-color: #F2F2F2;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  min-height: 470px;
+  -webkit-box-shadow:1px 10px 23px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow:1px 10px 23px 0px rgba(0,0,0,0.5);
+  box-shadow:1px 10px 23px 0px rgba(0,0,0,0.5);
+}
