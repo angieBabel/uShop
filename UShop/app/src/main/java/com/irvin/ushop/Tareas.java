@@ -1,6 +1,7 @@
 package com.irvin.ushop;
 
 import android.app.AlertDialog;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -31,10 +33,8 @@ import java.util.List;
  */
 public class Tareas extends Fragment {
 
-    //ModeloTarea[] tsk;
-    private ListView lista_tareas;
+    ListView lista_tareas;
     private ArrayList<String> array_task = new ArrayList<>();
-    int x=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +44,25 @@ public class Tareas extends Fragment {
         final ArrayAdapter adaptador = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_expandable_list_item_1, array_task);
         lista_tareas.setAdapter(adaptador);
 
+        lista_tareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> av, View view, int i, long l) {
+                //Toast.makeText(getActivity(), "Tarea " + i, Toast.LENGTH_LONG).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Opciones");
+                builder.setPositiveButton("Modificar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                builder.setNegativeButton("Eliminar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                builder.create().show();
+            }
+        });
+
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
         ParseUser user = ParseUser.getCurrentUser();
         query.whereEqualTo("user", user);
@@ -51,20 +70,20 @@ public class Tareas extends Fragment {
             @Override
             public void done(List<ParseObject> objects, com.parse.ParseException e) {
                 if (e == null) {
-                    Log.d("Tareas",objects.size()+" ");
                     for (ParseObject parseObject : objects){
                         String tarea;
                         tarea = parseObject.get("taskname").toString();
-                        Log.d("Tarea", tarea);
                         array_task.add(tarea);
                         adaptador.notifyDataSetChanged();
                     }
                 } else {
                     // Something went wrong.
-                    Log.d("Usuario", "Error: " + e.getMessage());
+                    Toast.makeText(getActivity(),"Error: " + e.getMessage().toString(),Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
         return rootView;
     }
 

@@ -1,30 +1,40 @@
 package com.irvin.ushop;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by Irvin on 27/03/2015.
  */
 public class Preferencia extends Fragment {
-
     ListView lista_preferencias;
     ModeloPreferencia[] modPref;
+    private ArrayList<String> array_pref = new ArrayList<>();
+    //String[] array_pref = new String[16];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,13 +60,8 @@ public class Preferencia extends Fragment {
         modPref[14]= new ModeloPreferencia ("Regalos para El",0);
         modPref[15]= new ModeloPreferencia ("Regalos para Ella",0);
 
-        AdaptadorPreferencia adapter = new AdaptadorPreferencia(this.getActivity(), modPref);
+        final AdaptadorPreferencia adapter = new AdaptadorPreferencia(this.getActivity(), modPref);
         lista_preferencias.setAdapter(adapter);
-
-        //ArrayAdapter adaptador = new ArrayAdapter (this.getActivity(), android.R.layout.simple_list_item_1, preferencias);
-
-        //lista_preferencias = (ListView) rootView.findViewById(R.id.list_preferencias);
-        //lista_preferencias.setAdapter(adaptador);
 
         return rootView;
     }

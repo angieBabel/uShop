@@ -36,31 +36,39 @@ public class Registro extends ActionBarActivity {
         EditText pasw1 = (EditText) findViewById(R.id.paswreg);
         String password = pasw1.getText().toString();
 
+        EditText pasw2 = (EditText) findViewById(R.id.confmpasw);
+        String confirmpass = pasw2.getText().toString();
+
         EditText email1 = (EditText) findViewById(R.id.emailreg);
         String email = email1.getText().toString();
 
         EditText phone1 = (EditText) findViewById(R.id.telefonoreg);
         String phone = phone1.getText().toString();
 
-        ParseUser user = new ParseUser();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(email);
-        //"650-253-0000"
-        user.put("phone", phone);
 
-        user.signUpInBackground(new SignUpCallback() {
-            public void done(ParseException e) {
-                if (e == null) {
-                    // Hooray! Let them use the app now.
-                    //Toast.makeText(getApplication(),"Hooray! Let them use the app now.",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),MenuShop.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(getApplication(),"Fallo el registro. Revise los campos.",Toast.LENGTH_SHORT).show();
+        if(password != confirmpass){
+            Toast.makeText(this, "La contrasea no coincide", Toast.LENGTH_SHORT).show();
+        }else {
+            ParseUser user = new ParseUser();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(email);
+            //"650-253-0000"
+            user.put("phone", phone);
+
+            user.signUpInBackground(new SignUpCallback() {
+                public void done(ParseException e) {
+                    if (e == null) {
+                        // Hooray! Let them use the app now.
+                        //Toast.makeText(getApplication(),"Hooray! Let them use the app now.",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),MenuShop.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplication(),"Fallo el registro. Revise los campos.",Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
 
         this.finish();
     }
