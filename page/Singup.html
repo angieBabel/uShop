@@ -9,6 +9,32 @@
   <script src="js/jquery.js"></script>
   <script type="text/javascript" src="js/interacciones.js"></script>
   <script src="js/parse-1.4.2.min.js"></script>
+  <script>
+    function registro(){
+      Parse.initialize("Y4Z18hEnQtZYFxpMju1cvethHHtKZfu9aS4QyIag", "DGEIP3Gb8zIV44sZjlksx1KtXgI0Z3uIBaITftpH");
+      var uname= document.getElementById("usern").value;
+      var email=document.getElementById("correo").value;
+      var pass=document.getElementById("passw").value;
+      alert(uname+email+pass);
+      var user = new Parse.User();
+      user.set("username", uname);
+      user.set("password", pass);
+      user.set("email", email);
+
+      // other fields can be set just like with Parse.Object
+
+      user.signUp(null, {
+        success: function(user) {
+          alert("Yeihh");
+          // Hooray! Let them use the app now.
+        },
+        error: function(user, error) {
+          // Show the error message somewhere and let the user try again.
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+     };
+  </script>
 
 </head>
 <body>
@@ -39,17 +65,17 @@
 
         <div class="form-group col-lg-12">
           <label for="user">Username</label>
-          <input type="text" name="user" class="form-control">
+          <input type="text" name="user" class="form-control" id="usern">
         </div>
 
         <div class="form-group col-lg-12">
           <label for="email">Email</label>
-          <input type="text" name="email" class="form-control">
+          <input type="text" name="email" class="form-control" id="correo">
         </div>
 
         <div class="form-group col-lg-12">
           <label for="password">Password</label>
-          <input type="text" name="password" class="form-control">
+          <input type="text" name="password" class="form-control" id="passw">
         </div>
 
         <div class="form-group col-lg-12">
@@ -58,7 +84,7 @@
         </div>
 
         <div class="form-group col-lg-12">
-          <button class="btn btn-primary" type="submint">Enviar</button>
+          <button class="btn btn-primary" type="button" onclick="registro();">Enviar</button>
         </div>
 
       </form>
