@@ -335,3 +335,27 @@ array_pref.add("");
         array_pref[13]=("Video Juegos");
         array_pref[14]=("Regalos para El");
         array_pref[15]=("Regalos para Ella");
+
+        if(modPref[position].getValue() == 1) {
+            check.setChecked(true);
+            //Toast.makeText(getContext(), modelItems[position].toString(), Toast.LENGTH_SHORT).show();
+        }else
+            check.setChecked(false);
+
+  modPref = new ModeloPreferencia[16];
+        "Audio",
+        "Autos",
+        "Libros",
+        "Bebés",
+        "Celulares",
+        "Computadoras",
+        "Deportes",
+        "Electronica",
+        "Electrodomésticos",
+        "Hogar",
+        "Juguetes",
+        "Mascotas",
+        "Salud y Belleza",
+        "Video Juegos",
+        "Regalos para El",
+        "Regalos para Ella",

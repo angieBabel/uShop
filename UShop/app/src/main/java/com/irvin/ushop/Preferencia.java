@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,9 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,16 +35,19 @@ import java.util.List;
  * Created by Irvin on 27/03/2015.
  */
 public class Preferencia extends Fragment {
-    ListView lista_preferencias;
+    ListView listaPreferencias;
     ModeloPreferencia[] modPref;
-    private ArrayList<String> array_pref = new ArrayList<>();
-    //String[] array_pref = new String[16];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_preferencia, container, false);
 
-        lista_preferencias = (ListView) rootView.findViewById(R.id.list_preferencias);
+        listaPreferencias = (ListView) rootView.findViewById(R.id.list_preferencias);
+
+        ParseUser now = ParseUser.getCurrentUser();
+        Log.d("Hector", now.get("Preferences").toString());
+        ArrayList nueva = (ArrayList) now.get("Preferences");
+        Log.d("Hector", nueva.get(0).toString());
 
         modPref = new ModeloPreferencia[16];
         modPref[0]= new ModeloPreferencia ("Audio",0);
@@ -60,9 +67,22 @@ public class Preferencia extends Fragment {
         modPref[14]= new ModeloPreferencia ("Regalos para El",0);
         modPref[15]= new ModeloPreferencia ("Regalos para Ella",0);
 
-        final AdaptadorPreferencia adapter = new AdaptadorPreferencia(this.getActivity(), modPref);
-        lista_preferencias.setAdapter(adapter);
+        int x=0;
+        int size = nueva.size();
+        JSONArray myArray = now.getJSONArray("Preferences");
+        //Log.d("Size",""+size);
+        while(x < size){
+            try {
+                int position = myArray.getInt(x);
+                modPref[position]= new ModeloPreferencia(modPref[x].getName(),1);
+            } catch (JSONException e) {
+                return null;
+            }
+            x++;
+        }
 
+        AdaptadorPreferencia adapter = new AdaptadorPreferencia(this.getActivity(), modPref);
+        listaPreferencias.setAdapter(adapter);
         return rootView;
     }
 }
