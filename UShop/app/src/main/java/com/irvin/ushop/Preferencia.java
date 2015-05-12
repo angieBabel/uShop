@@ -1,7 +1,9 @@
 package com.irvin.ushop;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -37,7 +39,9 @@ import java.util.List;
 public class Preferencia extends Fragment {
     ListView listaPreferencias;
     ModeloPreferencia[] modPref;
+    boolean fla = true;
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_preferencia, container, false);
@@ -45,9 +49,7 @@ public class Preferencia extends Fragment {
         listaPreferencias = (ListView) rootView.findViewById(R.id.list_preferencias);
 
         ParseUser now = ParseUser.getCurrentUser();
-        Log.d("Hector", now.get("Preferences").toString());
-        ArrayList nueva = (ArrayList) now.get("Preferences");
-        Log.d("Hector", nueva.get(0).toString());
+        Log.d("Preferencias Parse", now.get("Preferences").toString());
 
         modPref = new ModeloPreferencia[16];
         modPref[0]= new ModeloPreferencia ("Audio",0);
@@ -68,9 +70,10 @@ public class Preferencia extends Fragment {
         modPref[15]= new ModeloPreferencia ("Regalos para Ella",0);
 
         int x=0;
-        int size = nueva.size();
         JSONArray myArray = now.getJSONArray("Preferences");
-        //Log.d("Size",""+size);
+        int size = myArray.length();
+        Log.d("JSONarray preferencias", myArray.toString());
+
         while(x < size){
             try {
                 int position = myArray.getInt(x);
@@ -79,6 +82,10 @@ public class Preferencia extends Fragment {
                 return null;
             }
             x++;
+        }
+
+        while(myArray != null){
+            myArray = null;
         }
 
         AdaptadorPreferencia adapter = new AdaptadorPreferencia(this.getActivity(), modPref);

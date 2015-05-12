@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class AdaptadorPreferencia extends ArrayAdapter{
         ModeloPreferencia[] modPref = null;
         Context context;
+        int size = 0 ;
 
         public AdaptadorPreferencia(Context context, ModeloPreferencia[] resource){
             super(context,R.layout.vista_preferencias,resource);
@@ -54,25 +55,29 @@ public class AdaptadorPreferencia extends ArrayAdapter{
                 public void onClick(View view) {
                     boolean isChecked = ((CheckBox)view).isChecked();
 
-                    ParseUser now = new ParseUser();
-                    ArrayList nueva = (ArrayList) now.get("Preferences");
+                    ParseUser now = ParseUser.getCurrentUser();
                     JSONArray myArray = now.getJSONArray("Preferences");
 
                     if (isChecked) {
-                            try {
-                                myArray.put(position);
-                                nueva.add(myArray.getString(position));
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                        now.put("Preferences", nueva);
+                        myArray.put(""+ position +"");
+                        now.put("Preferences",myArray);
                         now.saveInBackground();
-
                         Toast.makeText(getContext(), "Checkbox " + modPref[position].getName().toString() + " marcado!", Toast.LENGTH_SHORT).show();
                     }
                     else {
+                        int x=0;
+                        while(x < myArray.length()){
+                            try {
+                                if (myArray.getInt(x) == position ){
+                                    myArray.remove(x);
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            x++;
+                        }
+                        now.put("Preferences",myArray);
+                        now.saveInBackground();
                         //modPref[position] = new ModeloPreferencia(modPref[position].getName().toString(),0);
                         Toast.makeText(getContext(), "Checkbox " + modPref[position].getName().toString() + " desmarcado!", Toast.LENGTH_SHORT).show();
                     }
