@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.CheckBox;
+
 import com.parse.ParseUser;
 
 public class MenuShop extends ActionBarActivity
@@ -111,7 +113,7 @@ public class MenuShop extends ActionBarActivity
     }
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
@@ -137,7 +139,7 @@ public class MenuShop extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     /**
      * A placeholder fragment containing a simple view.

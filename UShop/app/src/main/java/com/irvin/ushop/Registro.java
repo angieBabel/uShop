@@ -29,7 +29,6 @@ public class Registro extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 boolean isCheked = ((CheckBox)v).isChecked();
-
                 if (isCheked){
                     makeReg.setEnabled(true);
                     makeReg.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +81,6 @@ public class Registro extends ActionBarActivity {
                     );
 
                 }else{
-                    Toast.makeText(getApplication(), "Debe aceptar los Terminos y Condiciones", Toast.LENGTH_SHORT).show();
                     makeReg.setEnabled(false);
                 }
             }

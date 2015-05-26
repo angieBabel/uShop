@@ -9,36 +9,21 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/uShhop_main"
-            android:id="@+id/ushoptv"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView"
             android:layout_gravity="center_horizontal"
-            android:textSize="30dp"
-            android:layout_marginTop="30dp"/>
+            android:src="@mipmap/logo"
+            android:layout_marginTop="20dp"/>
 
         <com.wrapp.floatlabelededittext.FloatLabeledEditText
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp">
@@ -50,13 +35,15 @@
                 android:ems="10"
                 android:id="@+id/nombre_et"
                 android:layout_below="@+id/ushoptv"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                />
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
         <com.wrapp.floatlabelededittext.FloatLabeledEditText
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,32 +55,48 @@
                 android:layout_gravity="center_horizontal"/>
         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rememberUser_main"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:id="@+id/sesion_chk"/>
 
-        <Button
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/ingresar_main"
-            android:layout_marginTop="30dp"
-            android:onClick="ingresarUsuario"/>
+            android:layout_gravity="center"
+            android:paddingTop="15dp">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/registrarbttn"
-            android:layout_marginTop="20dp"
-            android:onClick="mostrarVistaRegistro"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rememberUser_main"
+                android:id="@+id/chkRemUs"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registrar_main"
+                android:id="@+id/textviewRegistrar"
+                android:textColor="#10C3EB"
+                android:textSize="20dp"
+                android:layout_gravity="right"
+                android:paddingRight="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/ingresar_main"
+                android:onClick="ingresarUsuario"
+                android:id="@+id/btnIngresar"
+                android:layout_below="@+id/textviewRegistrar"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
 
     </LinearLayout>
-
-    </ScrollView>
 
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +28,7 @@ import com.parse.ParseUser;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 /**
  * Created by Irvin on 14/04/2015.
@@ -44,24 +46,7 @@ public class Tareas extends Fragment {
         final ArrayAdapter adaptador = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_expandable_list_item_1, array_task);
         lista_tareas.setAdapter(adaptador);
 
-        lista_tareas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> av, View view, int i, long l) {
-                //Toast.makeText(getActivity(), "Tarea " + i, Toast.LENGTH_LONG).show();
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Opciones");
-                builder.setPositiveButton("Modificar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-                builder.setNegativeButton("Eliminar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-                builder.create().show();
-            }
-        });
+        registerForContextMenu(lista_tareas);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
         ParseUser user = ParseUser.getCurrentUser();
@@ -90,7 +75,7 @@ public class Tareas extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true); //hasMenu
+        setHasOptionsMenu(true);//hasMenu
     }
 
     @Override
@@ -135,5 +120,17 @@ public class Tareas extends Fragment {
                 return super.onContextItemSelected(item);
         }
 
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getActivity().getMenuInflater();
+        inflater.inflate(R.menu.menu_opciones_tareas, menu);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 }

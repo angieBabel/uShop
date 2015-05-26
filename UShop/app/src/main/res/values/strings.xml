@@ -19,7 +19,7 @@
     <!-- Strings para la vista principal (main-login) -->
     <string name="uShhop_main">uShop</string>
     <string name="rememberUser_main">No cerrar sesión</string>
-    <string name="registrarbttn">Crear cuenta</string>
+    <string name="registrar_main">Registrar!</string>
     <string name="ingresar_main">Ingresar</string>
     <string name="contrasena_main">Contraseña</string>
     <string name="nombre_main">Nombre</string>
