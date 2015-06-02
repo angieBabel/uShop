@@ -4,7 +4,7 @@
 }
 
 .header{
-	height: 10%;
+	height: 40%;
 
 	font-size: 15px;
 	text-decoration: underline;
@@ -60,12 +60,14 @@
 	margin-left: 15px;
 }
 .footer{
+	margin-top: 3%;
 	background: rgba(4, 131, 152, 1);
 	color: rgba(255, 255, 255, 1);
 	font-size: 35px;
 	text-align: center;
 	font-style: italic;
-	height: 100%;
+	height: 100px;
+	width: 100%;
 }
 .footer p{
 	margin-top: 20px;
@@ -89,5 +91,10 @@ body{
   -moz-box-shadow:1px 10px 23px 0px rgba(0,0,0,0.5);
   box-shadow:1px 10px 23px 0px rgba(0,0,0,0.5);
 }
-
+.form{
+	margin-top: 100px;
+}
+.pull-right{
+	margin-left: 50%;
+}
 

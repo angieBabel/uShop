@@ -6,29 +6,30 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
 	<script src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/interacciones.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-	<div class="row header">
-		<div class=" col-lg-12">
-			<ul class="nav navbar-nav menu col-lg-9">
+<header>
+	<div class="nav navbar-nav header col-lg-12">
+		<ul class="nav navbar-nav menu pull-left">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Download</a></li>
 				<li><a href="#">Contact</a></li>
 				<li><a href="#">Extra</a></li>
 
+		</ul>
+		<div class="pull-right">
+			<ul class=" nav navbar-nav menu">
+					<li><a href="singup.html">Sing up</a></li>
+					<li><button class="btn btn-primary boton" type="submit" onclick="login.html">Login</button></li>
 			</ul>
-			<ul class="nav navbar-nav menu col-lg-3">
-				<li><a href="singup.html">Sing up</a></li>
-				<li><button class="btn btn-primary boton" type="submit" onclick="login.html">Login</button></li>
-			</ul>
-
 		</div>
 	</div>
-
+</header>
+<div class="container-fluid">
 	<div class="row">
 		<div class="contenedor col-lg-12">
 			<div id="imagen1">
@@ -38,13 +39,12 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="row footer">
-		<div class="col-lg-12">
+</div>
+<footer>
+		<div class="footer">
 				<p>"Revolucionando tu forma de comprar"</p>
 		</div>
-	</div>
-</div>
+</footer>
 </body>
 </html>
 
