@@ -61,11 +61,11 @@
 }
 .footer{
 	background: rgba(4, 131, 152, 1);
-	height: 107px;
 	color: rgba(255, 255, 255, 1);
 	font-size: 35px;
 	text-align: center;
 	font-style: italic;
+	height: 100%;
 }
 .footer p{
 	margin-top: 20px;
@@ -77,8 +77,6 @@ body{
 .container
 {
 
-	height: 100%;
-	width: 100%;
 }
 .formulario{
 	margin-left: 120px;
