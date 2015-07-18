@@ -21,14 +21,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/userName"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/logo" />
+                android:src="@mipmap/ic_launcher" />
 
             <ListView
                 android:layout_width="match_parent"

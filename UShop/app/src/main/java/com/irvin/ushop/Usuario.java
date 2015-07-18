@@ -11,13 +11,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -34,12 +38,13 @@ public class Usuario extends Fragment {
         ParseUser user = ParseUser.getCurrentUser();
         String username = user.getUsername();
 
-        TextView tv = (TextView) rootView.findViewById(R.id.userName);
-        tv.setText(username.toString());
+/*        TextView tv = (TextView) rootView.findViewById(R.id.userName);
+        tv.setText(username.toString());*/
 
+/*
         liTareas = (ListView) rootView.findViewById(R.id.liUserPref);
         final ArrayAdapter adaptador = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_expandable_list_item_1, arTsk);
-        liTareas.setAdapter(adaptador);
+        liTareas.setAdapter(adaptador);*/
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
         ParseUser user1 = ParseUser.getCurrentUser();
@@ -52,7 +57,7 @@ public class Usuario extends Fragment {
                         String tarea;
                         tarea = parseObject.get("taskname").toString();
                         arTsk.add(tarea);
-                        adaptador.notifyDataSetChanged();
+                        /*adaptador.notifyDataSetChanged();*/
                     }
                 } else {
                     // Something went wrong.
@@ -60,6 +65,18 @@ public class Usuario extends Fragment {
                 }
             }
         });
+
+        /*
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("movie", "The Matrix");
+        ParseCloud.callFunctionInBackground("averageStars", params, new FunctionCallback<Float>() {
+            void done(Float ratings, ParseException e) {
+                if (e == null) {
+                    // ratings is 4.5
+                }
+            }
+        });
+        */
 
         return rootView;
 

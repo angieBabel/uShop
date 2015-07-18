@@ -51,7 +51,6 @@ public class Login extends ActionBarActivity {
                         if (user != null) {
                             // Hooray! The user is logged in.
                             Intent i = new Intent(getApplicationContext(),MenuShop.class);
-                            CheckBox cRUser = (CheckBox) findViewById(R.id.chkRemUs);
                             finish();
                             startActivity(i);
                         } else {
